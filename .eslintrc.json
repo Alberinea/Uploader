@@ -1,0 +1,28 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "google"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react", "prettier"
+    ],
+    "rules": {
+        "react/no-unescaped-entities": "off",
+        "require-jsdoc": "off",
+        "object-curly-spacing": "off",
+        "prettier/prettier": "error"
+    }
+}
