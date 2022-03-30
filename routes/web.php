@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\UploadController;
+use App\Http\Controllers\DeleteFileController;
+use App\Http\Controllers\GetAllFilesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/api/files', [GetAllFilesController::class, 'getAll']);
+
+Route::post('/api/upload', [UploadController::class, 'upload']);
+
+Route::delete('/api/upload', [DeleteFileController::class, 'delete']);

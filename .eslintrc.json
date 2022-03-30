@@ -23,6 +23,8 @@
         "react/no-unescaped-entities": "off",
         "require-jsdoc": "off",
         "object-curly-spacing": "off",
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "indent": "off",
+        "operator-linebreak": "off"
     }
 }
