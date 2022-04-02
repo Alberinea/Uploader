@@ -23,7 +23,7 @@ class GetOneFileController extends Controller
         ini_set('memory_limit','256M');
 
         $data = json_decode($request->getContent());
-        $path = $data->path;
+        $path = $data->path_id;
         $file = Storage::disk('google')->get($path);
         $image = Image::make($file);
         $image->resize($data->metadata->width, $data->metadata->height);
