@@ -25,15 +25,9 @@ class GetOneFileController extends Controller
         $file = Storage::disk('google')->readStream($path);
         $image = Image::make($file);
         $image->resize($data->metadata->width, $data->metadata->height);
-        // $image = imagecreatefromstring($file);
-        // $resizedImage = imagescale($image, $data->metadata->width, $data->metadata->height);
+        $image->encode();
 
-        // ob_start();
-        // imagejpeg($resizedImage);
-        // $resizedImageString = ob_get_contents();
-        // ob_end_clean();
-
-        // Storage::disk('google')->update($path, $image);
+        Storage::disk('google')->update($path, $image);
 
         DB::table('files')->where('path_id', '=', $path)->update(['metadata' => json_encode($data->metadata)]);
 
