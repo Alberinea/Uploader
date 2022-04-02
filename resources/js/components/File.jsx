@@ -73,7 +73,7 @@ const File = () => {
       },
       method: 'DELETE',
       body: JSON.stringify({
-        path: file.path_id,
+        path_id: file.path_id,
       }),
     });
 
