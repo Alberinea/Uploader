@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Storage;
 class UploadController extends Controller
 {
     public function upload(Request $request) {
-        ini_set('memory_limit','256M');
-
         // try {
         //     $request->validate([    
         //     'file' => 'required|mimes:csv,jpeg,bmp,png,svg,pdf|max:5000'
