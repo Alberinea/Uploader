@@ -20,7 +20,7 @@ class UploadController extends Controller
         }
 
         $fileModel = new File;
-        $fileName = uniqid();
+        $fileName = uniqid().'-'.pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME);
         
         Storage::disk('google')->put($fileName, file_get_contents($request->file));
         $metadata = Storage::disk('google')->getMetaData($fileName);
@@ -29,18 +29,18 @@ class UploadController extends Controller
         $fileModel->path_id = $metadata['path'];
         $fileModel->file_type = $metadata['mimetype'];
 
-        try {
-            $request->validate([    
-            'file' => 'mimes:jpeg,bmp,png,svg'
-            ]);
-            $width = getimagesize($request->file('file'))[0];
-            $height = getimagesize($request->file('file'))[1];
-            $dimensions = json_encode(['width' => $width, 'height' => $height]);
-            $fileModel->metadata = $dimensions;
-            $fileModel->isImage = true;
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            $fileModel->isImage = false;
-        }
+        // try {
+        //     $request->validate([    
+        //     'file' => 'mimes:jpeg,bmp,png,svg'
+        //     ]);
+        //     $width = getimagesize($request->file('file'))[0];
+        //     $height = getimagesize($request->file('file'))[1];
+        //     $dimensions = json_encode(['width' => $width, 'height' => $height]);
+        //     $fileModel->metadata = $dimensions;
+        //     $fileModel->isImage = true;
+        // } catch (\Illuminate\Validation\ValidationException $e) {
+        //     $fileModel->isImage = false;
+        // }
 
         $fileModel->save();
 
