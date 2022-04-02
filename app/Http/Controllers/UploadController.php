@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class UploadController extends Controller
 {
     public function upload(Request $request) {
+        ini_set('memory_limit','256M');
 
         try {
             $request->validate([    
