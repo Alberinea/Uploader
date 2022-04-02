@@ -16,7 +16,7 @@ class UploadController extends Controller
             'file' => 'required|mimes:csv,jpeg,bmp,png,svg,pdf|max:5000'
         ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json($e->errors(), 400);
+            return response()->json($e->errors(), 401);
         }
 
         $fileModel = new File;
