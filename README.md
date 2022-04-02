@@ -3,8 +3,11 @@
 A simple app that allows anyone to upload pdf, csv and all image types. 
 
 **Backend**: Laravel8
+
 **Frontend**: React
+
 **Database**: Free Mysql Cloud with 5mb space
+
 **Server to store files**: Google Drive
 
 ## Libraries used
