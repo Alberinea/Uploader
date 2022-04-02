@@ -13,7 +13,7 @@ class UploadController extends Controller
         
         try {
             $request->validate([    
-            'file' => 'required|mimes:csv,jpeg,bmp,png,svg,pdf|max:5000'
+            'file' => 'required|mimes:csv,jpeg,bmp,png,svg,pdf|max:6000'
         ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json($e->errors(), 400);
