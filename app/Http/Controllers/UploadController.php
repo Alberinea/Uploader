@@ -11,13 +11,13 @@ class UploadController extends Controller
     public function upload(Request $request) {
         ini_set('memory_limit','256M');
 
-        try {
-            $request->validate([    
-            'file' => 'required|mimes:csv,jpeg,bmp,png,svg,pdf|max:5000'
-        ]);
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json($e->errors(), 401);
-        }
+        // try {
+        //     $request->validate([    
+        //     'file' => 'required|mimes:csv,jpeg,bmp,png,svg,pdf|max:5000'
+        // ]);
+        // } catch (\Illuminate\Validation\ValidationException $e) {
+        //     return response()->json($e->errors(), 401);
+        // }
 
         $fileModel = new File;
         $fileName = uniqid().'-'.pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME);
