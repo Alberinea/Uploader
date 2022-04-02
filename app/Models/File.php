@@ -11,6 +11,8 @@ class File extends Model
     protected $fillable = [
         'name',
         'path_id',
-        'file_type'
+        'file_type',
+        'metadata',
+        'isImage'
     ];
 }

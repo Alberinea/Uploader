@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class DeleteFileController extends Controller
 {
-    public function delete (Request $request) { 
+    public function deleteAfterUpload (Request $request) { 
         $file = $request->json()->get('file');
         DB::table('files')->where('name', '=', $file['name'])->delete();
 
@@ -17,4 +17,14 @@ class DeleteFileController extends Controller
 
         return response()->json(['success' => true]);
     }   
+
+    public function delete (Request $request) { 
+        $data = json_decode($request->getContent());
+        $path = $data->path;
+        DB::table('files')->where('path_id', '=', $path)->delete();
+
+        Storage::disk('google')->delete($path);
+
+        return response()->json(['success' => true]);
+    }  
 }

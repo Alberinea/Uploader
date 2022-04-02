@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 
-
 class GetAllFilesController extends Controller
 {
     public function getAll()
