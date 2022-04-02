@@ -22,15 +22,15 @@ class GetOneFileController extends Controller
         $data = json_decode($request->getContent());
         $path = $data->path;
         $file = Storage::disk('google')->get($path);
-        $image = imagecreatefromstring($file);
-        $resizedImage = imagescale($image, $data->metadata->width, $data->metadata->height);
+        // $image = imagecreatefromstring($file);
+        // $resizedImage = imagescale($image, $data->metadata->width, $data->metadata->height);
 
-        ob_start();
-        imagejpeg($resizedImage);
-        $resizedImageString = ob_get_contents();
-        ob_end_clean();
+        // ob_start();
+        // imagejpeg($resizedImage);
+        // $resizedImageString = ob_get_contents();
+        // ob_end_clean();
 
-        Storage::disk('google')->update($path, $resizedImageString);
+        Storage::disk('google')->update($path, $file);
 
         DB::table('files')->where('path_id', '=', $path)->update(['metadata' => json_encode($data->metadata)]);
 

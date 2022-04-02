@@ -40,24 +40,28 @@ const File = () => {
   };
 
   const onSubmit = async () => {
-    if (isLoading) return;
+    // if (isLoading) return;
 
-    setIsLoading(true);
+    // setIsLoading(true);
 
-    await fetch(`/api/files`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': CSRFtoken,
-      },
-      method: 'PUT',
-      body: JSON.stringify({
-        metadata: dimensions,
-        path: file.path_id,
-      }),
-    });
+    // await fetch(`/api/files`, {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'X-CSRF-TOKEN': CSRFtoken,
+    //   },
+    //   method: 'PUT',
+    //   body: JSON.stringify({
+    //     metadata: dimensions,
+    //     path: file.path_id,
+    //   }),
+    // });
 
-    await getData.current();
-    setShowAlert(true);
+    // await getData.current();
+    // setShowAlert(true);
+
+    const image = new Image(dimensions.width, dimensions.height);
+    image.src = getFileImage(file);
+    console.log(image);
   };
 
   const deleteFile = async () => {
