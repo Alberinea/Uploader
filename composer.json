@@ -17,7 +17,8 @@
     "laravel/sanctum": "^2.11",
     "laravel/tinker": "^2.5",
     "laravel/ui": "^3.4",
-    "nao-pon/flysystem-google-drive": "~1.1"
+    "nao-pon/flysystem-google-drive": "~1.1",
+    "ext-gd": "*"
   },
   "require-dev": {
     "facade/ignition": "^2.5",
