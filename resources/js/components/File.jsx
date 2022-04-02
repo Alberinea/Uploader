@@ -20,7 +20,7 @@ const File = () => {
     const response = await (await fetch(`/api/files/${name}`)).json();
 
     if (!response.data) {
-      navigate('404');
+      navigate('/404');
     }
 
     setFile(response.data);
@@ -53,6 +53,7 @@ const File = () => {
       body: JSON.stringify({
         metadata: dimensions,
         path: file.path_id,
+        file_type: file.file_type,
       }),
     });
 

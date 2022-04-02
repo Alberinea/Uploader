@@ -5460,7 +5460,7 @@ var File = function File() {
             response = _context.sent;
 
             if (!response.data) {
-              navigate('404');
+              navigate('/404');
             }
 
             setFile(response.data);
@@ -5520,7 +5520,8 @@ var File = function File() {
                 method: 'PUT',
                 body: JSON.stringify({
                   metadata: dimensions,
-                  path: file.path_id
+                  path: file.path_id,
+                  file_type: file.file_type
                 })
               });
 

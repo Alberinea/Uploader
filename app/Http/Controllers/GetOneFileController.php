@@ -29,7 +29,9 @@ class GetOneFileController extends Controller
         $image->resize($data->metadata->width, $data->metadata->height);
         $image->encode();
 
-        Storage::disk('google')->update($path, $image);
+        Storage::disk('google')->update($path, $image, [
+            'mimetype' => $data->file_type,
+        ]);
 
         DB::table('files')->where('path_id', '=', $path)->update(['metadata' => json_encode($data->metadata)]);
 
