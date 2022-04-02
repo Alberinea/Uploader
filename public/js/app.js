@@ -5520,7 +5520,7 @@ var File = function File() {
                 method: 'PUT',
                 body: JSON.stringify({
                   metadata: dimensions,
-                  path: file.path_id,
+                  path_id: file.path_id,
                   file_type: file.file_type
                 })
               });
@@ -5976,8 +5976,8 @@ var Home = function Home() {
       maxFileSize: "5MB",
       acceptedFileTypes: ['image/*', 'application/pdf', 'text/csv'],
       server: serverParams,
-      allowRevert: true,
-      allowMultiple: true
+      allowMultiple: true,
+      allowRevert: false
     })]
   });
 };

@@ -30,6 +30,3 @@ Route::delete('/api/files', [DeleteFileController::class, 'delete']);
 Route::get('/api/files/{name}', [GetOneFileController::class, 'getOne']);
 
 Route::post('/api/upload', [UploadController::class, 'upload']);
-
-Route::delete('/api/upload', [DeleteFileController::class, 'deleteAfterUpload']);
-

@@ -76,8 +76,8 @@ const Home = () => {
         maxFileSize="5MB"
         acceptedFileTypes={['image/*', 'application/pdf', 'text/csv']}
         server={serverParams}
-        allowRevert={true}
         allowMultiple={true}
+        allowRevert={false}
       ></FilePond>
     </section>
   );

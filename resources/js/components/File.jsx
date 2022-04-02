@@ -52,7 +52,7 @@ const File = () => {
       method: 'PUT',
       body: JSON.stringify({
         metadata: dimensions,
-        path: file.path_id,
+        path_id: file.path_id,
         file_type: file.file_type,
       }),
     });
