@@ -20,6 +20,8 @@ class GetOneFileController extends Controller
     }
 
     public function resize(Request $request) {
+        ini_set('memory_limit','256M');
+
         $data = json_decode($request->getContent());
         $path = $data->path;
         $file = Storage::disk('google')->readStream($path);
