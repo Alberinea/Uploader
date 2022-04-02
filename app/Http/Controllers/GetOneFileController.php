@@ -24,7 +24,7 @@ class GetOneFileController extends Controller
 
         $data = json_decode($request->getContent());
         $path = $data->path;
-        $file = Storage::disk('google')->readStream($path);
+        $file = Storage::disk('google')->get($path);
         $image = Image::make($file);
         $image->resize($data->metadata->width, $data->metadata->height);
         $image->encode();
