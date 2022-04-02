@@ -1,6 +1,6 @@
 # Uploader
 
-A simple app that allows anyone to upload pdf, csv and all image files. 
+A simple app that allows anyone to upload pdf, csv and all image types. 
 
 **Backend**: Laravel8
 **Frontend**: React
@@ -25,9 +25,10 @@ A simple app that allows anyone to upload pdf, csv and all image files.
 - Lazy loading
 - Pagination
 - Auth
-- More File Detail UI
 - File Rating
+- More File Detail UI
+- More advanced page UI
 
 ## Demo
 
-[Live Demo](https://alberinea.github.io)
+[Live Demo](https://uploader-13.herokuapp.com)
