@@ -20,7 +20,7 @@ class UploadController extends Controller
         }
 
         $fileModel = new File;
-        $fileName = uniqid().'-'.pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME);
+        $fileName = uniqid();
         
         Storage::disk('google')->put($fileName, file_get_contents($request->file));
         $metadata = Storage::disk('google')->getMetaData($fileName);
